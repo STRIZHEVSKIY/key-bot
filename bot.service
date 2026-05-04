@@ -1,0 +1,22 @@
+[Unit]
+Description=Telegram Key Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/key-bot
+ExecStart=/root/key-bot/venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+# Переменные окружения (замените на свои значения)
+Environment=BOT_TOKEN=8626239823:AAGPEdF_tVK9qtmSyYrz83bROTK3vN17xVA
+Environment=PAID_CHANNEL_ID=-1003880921089
+
+# Логирование
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
